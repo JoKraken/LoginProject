@@ -5,24 +5,29 @@
         <link rel="stylesheet" href="./index.css">
 
         <title>LoginProject</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript" src="loginController.js"></script>
+        <script type="text/javascript" src="registerController.js"></script>
     </header>
-    <body>
+    <body ng-app="myApp">
         <div class="loginContainer container">
             <div class="loginContainer__content">
-                <form action="">
+                <form action="" ng-controller="loginCtrl">
                     <h1>Login</h1>
-                    <label for="username"></label>
-                    <input id="username" name="username" placeholder="username" type="text" /><br>
+                    <p class="loginContainer__content__errorText">Either the email or the password is wrong. Please try again.</p>
+                    <label for="email"></label>
+                    <input id="email" name="email" ng-model="data.email" placeholder="e-mail" type="email" ng-change="checkValidation()" required/><br>
                     <label for="password"></label>
-                    <input id="password" name="password" placeholder="password" type="password" /><br>
+                    <input id="password" name="password" ng-model="data.password" placeholder="password" type="password" ng-change="checkValidation()" minlength="8" required/><br>
                     <label class="checkbox" for="signIn"> stay sign in
-                        <input type="checkbox" id="signIn" name="signIn" value="signIn">
+                        <input type="checkbox" id="signIn" name="signIn" ng-model="data.signIn" ng-change="checkValidation()">
                         <span class ="checkbox__span"></span>
                     </label><br>
-                    <button class="loginContainer__content__button button">login</button>
+                    <button class="loginContainer__content__button button" ng-click="login()">login</button>
                 </form>
                 <p>OR</p>
-                <div>login with <img src="./icons/facebook.png"> or  <img src="./icons/google.png"></div>
+                <div>login with <img src="./icons/facebook.png" ng-click="clickIconLogin()"> or  <img src="./icons/google.png" ng-click="clickIconLogin()"></div>
                 <p>OR</p>
                 <div>if you have not registert yet, do it now <a href="">here</a>.</div>
             </div>
@@ -33,25 +38,25 @@
                 <p>This is the awesome Kraken site. <br> Login and see what you can do!</p>
             </div>
         </div>
-        <div class="alert">
-            <div class="alert__login alert__container">
+        <div class="alert" id="alert">
+            <div class="alert__login alert__container" id="alert__login">
                 <p>In the moment it is impossible to login with Google or Facebook. <br>
                     We will work on it, so it es possible as soon as possible.</p>
                 <button class="alert__button button">ok</button>
             </div>
-            <div class="alert__register alert__container">
+            <div class="alert__register alert__container" id="alert__register">
                 <form action="">
                     <h1>Register</h1>
                     <label for="firstname"></label>
-                    <input id="firstname" name="firstname" placeholder="firstname" type="text" /><br>
+                    <input id="firstname" name="firstname" placeholder="firstname" type="text" required/><br>
                     <label for="lastname"></label>
-                    <input id="lastname" name="lastname" placeholder="lastname" type="text" /><br>
-                    <label for="email"></label>
-                    <input id="email" name="email" placeholder="e-mail" type="email" /><br>
+                    <input id="lastname" name="lastname" placeholder="lastname" type="text" required/><br>
+                    <label for="emailRegister"></label>
+                    <input id="emailRegister" name="emailRegister" placeholder="e-mail" type="email" required/><br>
                     <label for="passortRegister"></label>
-                    <input id="passortRegister" name="passortRegister" placeholder="passwort" type="password" /><br>
+                    <input id="passortRegister" name="passortRegister" placeholder="passwort" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/><br>
                     <label class="checkbox" for="agree"> I agree to <a>User Agreement</a>, <a>Privacy Policy</a> and <a>Cookie Policy</a>.
-                        <input type="checkbox" id="agree" name="agree" value="agree">
+                        <input type="checkbox" id="agree" name="agree" value="agree" required>
                         <span class ="checkbox__span"></span>
                     </label><br>
                     <button class="loginContainer__content__button button">register</button>

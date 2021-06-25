@@ -20,9 +20,21 @@ form > h1 {
     margin-bottom: 2rem;
 }
 
+.loginContainer__content__errorText {
+    display: none;
+}
+
 form > input {
     margin-bottom: .5rem;
     border-radius: .35rem;
+}
+
+form > input:invalid {
+    background: hsl(5,30%,80%);
+}
+
+form > input:valid {
+    border-color: green;
 }
 
 .button {
