@@ -1,0 +1,138 @@
+body {
+    display: flex;
+    flex-flow: row;
+}
+
+.container {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer {
+    background-color: brown;
+    color: white;
+}
+
+form > h1 {
+    margin-bottom: 2rem;
+}
+
+form > input {
+    margin-bottom: .5rem;
+    border-radius: .35rem;
+}
+
+.button {
+    padding: .25rem 1rem;
+    border-radius: 1rem;
+    color: white;
+}
+
+.loginContainer__content__button {
+    background-color: darkgrey;
+}
+
+.loginContainer__content__button--active {
+    background-color: green;
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+.checkbox {
+    position: relative;
+    margin: .5rem 0 1rem 2rem;
+}
+.checkbox input:checked ~ .checkbox__span {
+    background-color: green;
+}
+.checkbox__span:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.checkbox input:checked ~ .checkbox__span:after {
+    display: block;
+}
+.checkbox .checkbox__span:after {
+    left: 8px;
+    bottom: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.checkbox__span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: white;
+    border-radius: 1rem;
+    border: solid 1px darkgrey;
+    margin-left: -1.8rem;
+}
+
+.loginContainer__content > div {
+    margin-bottom: 1rem;
+}
+
+img {
+    cursor: pointer;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: darkgrey;
+}
+
+.siteContainer {
+
+}
+
+.siteContainer__content {
+
+}
+
+.alert {
+    position: fixed;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.alert__container {
+    background-color: white;
+    border: solid 1px darkgrey;
+    height: auto;
+    width: 25%;
+    min-width: 300px;
+    padding: 2rem;
+}
+
+.alert__login {
+    text-align: center;
+    display: none;
+}
+
+.alert__button {
+    background-color: brown;
+}
+
+.alert__register {}
