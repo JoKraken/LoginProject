@@ -8,9 +8,10 @@ app.controller('loginCtrl', function($scope) {
     }
 
     $scope.login = function(){
+        console.log($scope.data.list);
         let foundEmail = false;
         let foundPassword = false;
-        if($scope.data.list !== undefined){
+        if($scope.data.list != null){
             for(let i = 0; i < $scope.data.list.length; i++){
                 if($scope.data.list[i].email == $scope.data.email){
                     foundEmail = true;
@@ -21,12 +22,12 @@ app.controller('loginCtrl', function($scope) {
             }
         }
         if(!foundEmail || !foundPassword){
-            document.getElementById("loginContainer__content__errorText").style.display = "block";
+            document.getElementsByClassName("loginContainer__content__errorText")[0].style.display = "block";
         }
     }
 
     $scope.checkValidation = function(){
-        if($scope.data.email != "" && $scope.data.password != "" && $scope.data.signIn) {
+        if($scope.data.email != "" && $scope.data.password != "") {
             document.getElementsByClassName("loginContainer__content__button")[0].classList.add("loginContainer__content__button--active");
         } else {
             document.getElementsByClassName("loginContainer__content__button")[0].classList.remove("loginContainer__content__button--active");
@@ -34,7 +35,7 @@ app.controller('loginCtrl', function($scope) {
     }
 
     $scope.clickIconLogin = function(){
-        document.getElementById("alert").style.display = "block";
-        document.getElementById("alert__login").style.display = "block";
+        document.getElementById("alert").classList.add("alert--show");
+        document.getElementById("alert__login").classList.add("alert--show");
     }
 });

@@ -120,13 +120,17 @@ a:hover {
 
 .alert {
     position: fixed;
-    display: flex;
     height: 100%;
     width: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
     display: none;
+}
+
+
+.alert--show {
+    display: flex !important;
+    flex-flow: column;
 }
 
 .alert__container {
@@ -145,6 +149,10 @@ a:hover {
 
 .alert__button {
     background-color: brown;
+    width: inherit;
+    margin: auto;
 }
 
-.alert__register {}
+.alert__register {
+    display: none;
+}
