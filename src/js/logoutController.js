@@ -1,7 +1,9 @@
 var app = angular.module('myApp', []);
 app.controller('logoutCtrl', function($scope) {
     let login = JSON.parse(localStorage.getItem("login"));
-    if(login.stay){
+    if(login == undefined) {
+        window.location.href = "../src/index.html";
+    } else if(login.stay){
         if(login.num == undefined) {
             login.num = 1;
             localStorage.setItem("login", JSON.stringify(login));
