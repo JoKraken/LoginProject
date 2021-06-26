@@ -4,7 +4,7 @@ app.controller('loginCtrl', function($scope) {
         signIn: false,
         email: "",
         password: "",
-        list: localStorage.getItem("list"),
+        list: JSON.parse(localStorage.getItem("list"))
     }
 
     $scope.login = function(){
@@ -23,6 +23,8 @@ app.controller('loginCtrl', function($scope) {
         }
         if(!foundEmail || !foundPassword){
             document.getElementsByClassName("loginContainer__content__errorText")[0].style.display = "block";
+        } else {
+            window.location.href = "./website.html";
         }
     }
 

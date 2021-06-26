@@ -1,0 +1,24 @@
+.navbar {
+    background-color: brown;
+}
+
+.navbar__header > img {
+    width: 40px;
+    margin-right: 25px;
+}
+
+.nav > li > a {
+    color: white;
+    text-decoration: normal;
+}
+
+.navbar__logout > button {
+    background-color: white;
+    border-radius: 1rem;
+    color: brown;
+    padding: 5px 10px;
+}
+
+.content {
+    margin: 1.5rem;
+}
