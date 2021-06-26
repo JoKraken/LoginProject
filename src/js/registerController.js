@@ -76,7 +76,7 @@ app.controller('registerCtrl', function($scope) {
                 $scope.data.list.push(temp);
                 localStorage.setItem("list", JSON.stringify($scope.data.list));
                 localStorage.setItem("login", JSON.stringify({id: temp.id, stay: false }));
-                window.location.href = "./website.html";
+                window.location.href = "../src/website.html";
             } else
                 document.getElementsByClassName("alert__register__errorText--email")[0].style.display = "block";
         }

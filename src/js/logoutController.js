@@ -12,10 +12,10 @@ app.controller('logoutCtrl', function($scope) {
             login.stay = false;
             login.num = undefined;
             localStorage.setItem("login", JSON.stringify(login));
-            window.location.href = "./index.html";
+            window.location.href = "../src/index.html";
         }
     } else if(!login.stay && login.num != undefined)
-        window.location.href = "./index.html";
+        window.location.href = "../src/index.html";
     else {
         login.num = 1;
         localStorage.setItem("login", JSON.stringify(login));
@@ -31,6 +31,6 @@ app.controller('logoutCtrl', function($scope) {
 
     $scope.logout = function(){
         localStorage.setItem("login", JSON.stringify({id: 0, stay: false}));
-        window.location.href = "./index.html";
+        window.location.href = "../src/index.html";
     }
 });

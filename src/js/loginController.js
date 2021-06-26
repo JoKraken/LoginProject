@@ -27,7 +27,7 @@ app.controller('loginCtrl', function($scope) {
             document.getElementsByClassName("loginContainer__content__errorText")[0].style.display = "block";
         } else {
             localStorage.setItem("login", JSON.stringify({id: id, stay: $scope.data.signIn}));
-            window.location.href = "./website.html";
+            window.location.href = "../src/website.html";
         }
     }
 
