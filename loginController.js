@@ -11,12 +11,14 @@ app.controller('loginCtrl', function($scope) {
         console.log($scope.data.list);
         let foundEmail = false;
         let foundPassword = false;
+        let id = 0;
         if($scope.data.list != null){
             for(let i = 0; i < $scope.data.list.length; i++){
                 if($scope.data.list[i].email == $scope.data.email){
                     foundEmail = true;
                     if($scope.data.list[i].password == $scope.data.password){
                         foundPassword = true;
+                        id = $scope.data.list[i].id;
                     }
                 }
             }
@@ -24,6 +26,7 @@ app.controller('loginCtrl', function($scope) {
         if(!foundEmail || !foundPassword){
             document.getElementsByClassName("loginContainer__content__errorText")[0].style.display = "block";
         } else {
+            localStorage.setItem("login", JSON.stringify({id: id, stay: $scope.data.signIn}));
             window.location.href = "./website.html";
         }
     }
