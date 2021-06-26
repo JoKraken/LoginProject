@@ -20,8 +20,15 @@ form > h1 {
     margin-bottom: 2rem;
 }
 
-.loginContainer__content__errorText {
+.loginContainer__content__errorText,
+.alert__register__errorText,
+.alert__register__errorText--email {
     display: none;
+}
+
+.alert__register__errorText,
+.alert__register__errorText--email {
+    color: brown;
 }
 
 form > input {
@@ -43,7 +50,8 @@ form > input:valid {
     color: white;
 }
 
-.loginContainer__content__button {
+.loginContainer__content__button,
+.alert__register__button {
     background-color: darkgrey;
 }
 

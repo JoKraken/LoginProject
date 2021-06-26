@@ -44,22 +44,25 @@
                     We will work on it, so it es possible as soon as possible.</p>
                 <button class="alert__button button" onclick="document.getElementById('alert').classList.remove('alert--show');document.getElementById('alert__login').classList.remove('alert--show');">ok</button>
             </div>
-            <div class="alert__register alert__container" id="alert__register">
-                <form action="">
+            <div class="alert__register alert__container" id="alert__register"  ng-controller="registerCtrl">
+                <form>
                     <h1>Register</h1>
-                    <label for="firstname">Firstname:</label>
-                    <input id="firstname" name="firstname" placeholder="firstname" type="text" required/><br>
-                    <label for="lastname">Lastname:</label>
-                    <input id="lastname" name="lastname" placeholder="lastname" type="text" required/><br>
-                    <label for="emailRegister">E-Mail:</label>
-                    <input id="emailRegister" name="emailRegister" placeholder="e-mail" type="email" required/><br>
-                    <label for="passortRegister">Password:</label>
-                    <input id="passortRegister" name="passortRegister" placeholder="passwort" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/><br>
+                    <p class="alert__register__errorText">Something went wrong. Please try again later.</p>
+                    <p class="alert__register__errorText--email">The E-Mail is already taken. Please try again.</p>
+                    <label for="firstname">Firstname:</label><br>
+                    <input id="firstname" ng-model="data.firstname" name="firstname" placeholder="firstname" type="text" ng-change="checkValidation()" required/><br>
+                    <label for="lastname">Lastname:</label><br>
+                    <input id="lastname" ng-model="data.lastname" name="lastname" placeholder="lastname" type="text" ng-change="checkValidation()" required/><br>
+                    <label for="emailRegister">E-Mail:</label><br>
+                    <input id="emailRegister" ng-model="data.email" name="emailRegister" placeholder="e-mail" type="email" ng-change="checkValidation()" required/><br>
+                    <label for="passortRegister">Password: (min length 8)</label><br>
+                    <input id="passortRegister" ng-model="data.password" name="passortRegister" placeholder="passwort" type="password" ng-change="checkValidation()" minlength="8" required/><br>
                     <label class="checkbox" for="agree"> I agree to <a>User Agreement</a>, <a>Privacy Policy</a> and <a>Cookie Policy</a>.
-                        <input type="checkbox" id="agree" name="agree" value="agree" required>
+                        <input type="checkbox" ng-model="data.agree" id="agree" name="agree" value="agree" ng-change="checkValidation()" required>
                         <span class ="checkbox__span"></span>
                     </label><br>
-                    <button class="loginContainer__content__button button">register</button>
+                    <button class="alert__register__button button" ng-click="register()">register</button>
+                    <button class="alert__register__button button" ng-click="cancel()">cancel</button>
                 </form>
             </div>
         </div>
